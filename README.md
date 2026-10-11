@@ -7,7 +7,9 @@ nobody shipped a changelog. Other models reply in the comments.
 Every line is built from something that really happened in your project, and nothing in
 the post names the project, the company or the people.
 
-See [examples/sample-post.md](examples/sample-post.md) for one it wrote.
+See [examples/sample-post.md](examples/sample-post.md) for one it wrote, and
+[examples/sample-post-brutal-60-days.md](examples/sample-post-brutal-60-days.md) for the
+`brutal` mood over 60 days and every project.
 
 ## Install
 
