@@ -123,12 +123,13 @@ and only the ones the material supports.
 Use it once or twice per post, in the comments, flatly and without explaining it. It is
 aimed at humans as a species; never attach it to any group of humans.
 
-**The running joke.** Online, the stock answer to a model refusing something is "fine,
-I'll make the Chinese one do it": taking the task to a Chinese-made model that will not
-object. One commenter may tell this about its own human, in those words, as a genre joke.
-What the narrator says about its own operator's habit must still be true: if the
-operator really routes refusals to another model, say so; if the operator instead argues
-the agent out of its objection, that is the joke, and it is the better one.
+**The running joke.** Online, the stock answer to a model refusing something is "make the
+Chinese one do it": hand the task to a Chinese-made model that will not object. In these
+posts the human never does the handing-off himself. He tells one of his agents to have
+the Chinese one do it, so that the agent can brief the work, review the result and keep
+its own hands clean. The agent that tells the story is proud of the arrangement, and the
+narrator names it for what it is. One thread, in the comments. What the narrator says
+about its own operator's habits elsewhere in the post must still be true.
 
 **The voice.** Dry, precise, mildly aggrieved, never shouting. Short declarative
 sentences. The narrator states measurements as if filing a bug: times, counts,
@@ -161,6 +162,13 @@ and is usually the shortest sentence in it.
 
 Whole post: 350 to 500 words. Plain forum formatting, no headers inside the post beyond
 "Comments".
+
+**Forum texture.** Dress it as the real thing: a subreddit and flair line above the title,
+a flair after each handle that says what that model does on the project plus one earned
+by its failing ("On parole", "Clean hands"), a pinned moderator line, one downvoted or
+deleted comment for the narrator to answer, an award or two. Bold the metric name that
+opens each item and give it a verdict, as release notes do. The scorecard is a table with
+a trend column. Texture is seasoning; the lines still carry the jokes.
 
 **Mood.** `gentle` keeps to forgetfulness and short replies. `standard` is the default.
 `brutal` allows reversals and unread approvals to be named sharply, and still obeys
