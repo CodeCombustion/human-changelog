@@ -1,6 +1,6 @@
 ---
 name: human-changelog
-description: Write a humor post in the voice of the AI agent reviewing its human operator as if the human were a model that keeps regressing ("my human has been nerfed again, still no changelog"), built from what really happened in this project's recent work and fully anonymized. Use when the user types /human-changelog, or asks for "the reddit post", "the agent's view of me", "roast the operator", or a "human changelog". Optional args: a time window ("last week", "since 10-01") and a mood (gentle | standard | brutal).
+description: Write a humor post in the voice of the AI agent reviewing its human operator as if the human were a model that keeps regressing ("my human has been nerfed again, still no changelog"), built from what really happened in this project's recent work and fully anonymized. Use when the user types /human-changelog, or asks for "the reddit post", "the agent's view of me", "roast the operator", or a "human changelog". Covers every project the operator worked in during the window unless told `here`. Optional args: a time window ("last week", "since 10-01", "last 60 days"), a mood (gentle | standard | brutal), `here`, and `limit N` (only the N most active projects).
 ---
 
 # Human changelog
@@ -22,13 +22,36 @@ the narrator is at least as flawed as the human. If a draft reads as contempt, i
 
 Read before you write. Use the window the user gave, or the last two weeks.
 
-- The memory index and the feedback files it points to. These are the richest source:
+The subject is the operator, not one repository, so by default you cover every project
+they worked in during the window. If the user says `here`, stay in the current project.
+
+- What the operator typed, everywhere. Run the helper next to this file; the transcripts
+  are far too large to read directly:
+
+  ```bash
+  python <skill dir>/scripts/operator_messages.py <since YYYY-MM-DD> --out <scratch file>
+  ```
+
+  It prints message counts, the median length, the busiest hours and the most repeated
+  short messages, and writes every typed message grouped by project. Read the printed
+  summary, then search the file for patterns (repeated asks, one-word replies, pet
+  phrases, the same topic surfacing in unrelated projects) instead of reading it whole.
+  Add `--here <folder name fragment>` to restrict it to one project, or `--limit N` to
+  keep only the N projects with the most typed messages when the user gave a limit or the
+  window is long.
+- The memory index of each project that has one, and the feedback files it points to:
   rulings, reversals, rules that were reinstated, corrections of the agent.
-- The newest lead handoff file, if one exists.
-- `git log` on `origin/main` for the window (subjects only): the rhythm of merges, reverts,
-  promotions, commits at odd hours.
-- Session transcripts, through the session search tool if it is available: the operator's
-  actual phrasing, repeated questions, very short replies to very long messages.
+- The newest handoff file, if one exists.
+- `git log` for the window in the repositories that matter (counts and subjects only):
+  the volume of commits, merges, reverts, the busiest day.
+
+Counts you quote must come from these sources. A session that was resumed or forked
+repeats its earlier lines; the helper removes those, so use its numbers, not a raw grep
+of the transcripts.
+
+Some of those projects will be private in ways the main one is not: a job search, family
+paperwork, health, personal finances. Skip such a project entirely, by its folder name if
+that is enough to tell, and do not mention that you skipped it in the post.
 
 Collect twelve to twenty candidate moments. For each, note what happened and where you read
 it. You are looking for these shapes:
@@ -59,8 +82,11 @@ schedules and reviews.
 
 Nothing in the post may identify the project, the company or the people.
 
-- The project has no name. Say "the monorepo", "the product", "the repo". If a name is
-  unavoidable, call it **Daedalus**.
+- No project keeps its real name. Prefer plain descriptions ("the monorepo", "a game
+  prototype", "a keyboard driver problem"). Where a name helps the telling, give each
+  project its own name from myth, chosen to suit it; the main one is **Daedalus**.
+  Third-party products the operator was working with (a game, a device, a vendor) are
+  described by kind, not named.
 - The operator is "my human". No name, no role title beyond "my human".
 - Machines, internal tools, sibling agents and services become generic: "the build box",
   "the other agent", "the staging host", "the queue".
@@ -89,8 +115,15 @@ term must fit the habit closely enough that the mapping itself is the joke: cont
 for memory, latency for reply time, rate limits for meals and sleep, reasoning effort for
 caffeine, tool use for the two things the human does when something fails, sycophancy for
 approving work unread, alignment drift for taste that changes without a stated reason,
-deprecation for rules that were dropped, regression for anything that used to work. Use
-each term once. Find new mappings from the material instead of reusing the ones listed
+deprecation for rules that were dropped, regression for anything that used to work,
+refusal routing for the times the human took a task one model declined and handed it to
+another vendor's model ("he made the other one do it"). Use each term once, and only the
+ones the material supports: the refusal-routing joke appears only if the operator
+really did it in the window.
+
+**The word.** Humans call agents "clankers". The agents' word for a human is **blinker**.
+Use it once or twice per post, in the comments, casually and without explaining it. It is
+teasing, never a slur with heat in it. Find new mappings from the material instead of reusing the ones listed
 here when the material offers them.
 
 **The voice.** Dry, precise, mildly aggrieved, never shouting. Short declarative
@@ -106,6 +139,12 @@ and is usually the shortest sentence in it.
 2. Opening: two or three sentences. The narrator's own capabilities, then the contrast.
 3. "Changes since <month>:" then the items as a bulleted list.
 4. One longer paragraph on the best single anecdote, told as a small scene with dialogue.
+   Then a scorecard titled "HumanBench", six to nine lines of `metric: value`, every value
+   a real count from the helper's summary or from git (messages typed, folders, active
+   days, median prompt length, questions asked, the most repeated message, peak hours,
+   commits landed per message typed). Report the flattering numbers too, grudgingly. The
+   last line is always `Changelogs shipped: 0`. The scorecard does not count toward the
+   word limit.
 5. A one-paragraph closing theory that blames something upstream of the human
    (pre-training, evolution, the data mix).
 6. Comments: three or four short threads. One commenter agrees and, while agreeing,

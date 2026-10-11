@@ -22,13 +22,20 @@ git clone https://github.com/CodeCombustion/human-changelog ~/.claude/skills/hum
 /human-changelog since 10-01 brutal
 ```
 
-Arguments are optional: a time window (default: the last two weeks) and a mood
-(`gentle`, `standard`, `brutal`).
+Arguments are optional: a time window (default: the last two weeks), a mood
+(`gentle`, `standard`, `brutal`), `here` to stay inside the current project, and
+`limit N` to cover only your N most active projects. Without `here` it covers every
+project you worked in during the window.
+
+Each post carries a "HumanBench" scorecard of real counts about you: messages typed,
+questions asked, your most repeated message, your peak hours.
 
 ## What it does
 
-1. Reads what the agent already has about recent work: its memory files, the latest
-   handoff, commit subjects, session transcripts.
+1. Reads what the agent already has about recent work: everything you typed in any
+   project (through `scripts/operator_messages.py`, which reads the session transcripts
+   under `~/.claude/projects` without loading them into the conversation), its memory
+   files, the latest handoff, commit counts.
 2. Picks the moments worth telling: reversed decisions, rules dropped and reinstated,
    questions asked twice, one-word replies to long reports, and at least two times the
    agent was the one who got it wrong.
