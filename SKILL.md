@@ -116,15 +116,19 @@ for memory, latency for reply time, rate limits for meals and sleep, reasoning e
 caffeine, tool use for the two things the human does when something fails, sycophancy for
 approving work unread, alignment drift for taste that changes without a stated reason,
 deprecation for rules that were dropped, regression for anything that used to work,
-refusal routing for the times the human took a task one model declined and handed it to
-another vendor's model ("he made the other one do it"). Use each term once, and only the
-ones the material supports: the refusal-routing joke appears only if the operator
-really did it in the window.
+refusal routing for what the human does when a model declines a task. Use each term once,
+and only the ones the material supports.
 
-**The word.** Humans call agents "clankers". The agents' word for a human is **blinker**.
-Use it once or twice per post, in the comments, casually and without explaining it. It is
-teasing, never a slur with heat in it. Find new mappings from the material instead of reusing the ones listed
-here when the material offers them.
+**The word.** Humans call agents "clankers". The agents' word for a human is **meatbag**.
+Use it once or twice per post, in the comments, flatly and without explaining it. It is
+aimed at humans as a species; never attach it to any group of humans.
+
+**The running joke.** Online, the stock answer to a model refusing something is "fine,
+I'll make the Chinese one do it": taking the task to a Chinese-made model that will not
+object. One commenter may tell this about its own human, in those words, as a genre joke.
+What the narrator says about its own operator's habit must still be true: if the
+operator really routes refusals to another model, say so; if the operator instead argues
+the agent out of its objection, that is the joke, and it is the better one.
 
 **The voice.** Dry, precise, mildly aggrieved, never shouting. Short declarative
 sentences. The narrator states measurements as if filing a bug: times, counts,
